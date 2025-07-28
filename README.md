@@ -12,7 +12,7 @@ Extract a clean **heading outline (Title → H1/H2/H3)** from any PDF, fully off
 
 ## 1  Quick Start (Offline Docker Build)
 
-1. **Pre‑download all Python wheels** into `wheelhouse/` (one‑time, requires internet):
+1. **Pre‑download all Python wheels** into `wheelhouse/` (one‑time, already done):
 
     ```bash
     mkdir -p wheelhouse
@@ -47,30 +47,32 @@ Extract a clean **heading outline (Title → H1/H2/H3)** from any PDF, fully off
 ## 2  Repository Layout
 
 pdf_outline_project/
-├── Dockerfile # offline, CPU‑only container spec (uses wheelhouse/)
-├── process_pdfs.py # entry‑point: loops /app/input → /app/output
-├── requirements.txt # runtime deps
-├── README.md # ← you are here
+├── Dockerfile              # offline, CPU‑only container spec (uses wheelhouse/)
+├── process_pdfs.py         # entry‑point: loops /app/input → /app/output
+├── requirements.txt        # runtime deps
+├── README.md               # ← you are here
 │
-├── wheelhouse/ # pre‑downloaded wheels for pip install --no-index
+├── wheelhouse/             # pre‑downloaded wheels for pip install --no-index
 │
-├── models/ # bundled INT8 Donut & head
-│   ├── donut_base_int8/int8/ # encoder+decoder .onnx
+├── models/                 # bundled INT8 Donut & head
+│   ├── donut_base_int8/int8/  # encoder+decoder .onnx
 │   └── donut_head.pkl
 │
-├── pdf_outline/ # installable package
-│   ├── init.py # exposes CLI entrypoint
-│   ├── cli.py # thin wrapper around run()
-│   ├── render.py # PDF → RGB images
-│   ├── donut_infer.py # ONNXRuntime inference
-│   ├── extract_lines.py # text‑line detection
-│   ├── classify.py # small MLP head
-│   └── cluster.py # robust heading‑level assignment
+├── pdf_outline/            # installable package
+│   ├── __init__.py         # exposes CLI entrypoint
+│   ├── cli.py              # thin wrapper around run()
+│   ├── render.py           # PDF → RGB images
+│   ├── donut_infer.py      # ONNXRuntime inference
+│   ├── extract_lines.py    # text‑line detection
+│   ├── classify.py         # small MLP head
+│   └── cluster.py          # robust heading‑level assignment
 │
-└── sample_dataset/ # demo + schema
-├── pdfs/ # input PDFs
-├── outputs/ # output JSONs
-└── schema/output_schema.json
+└── sample_dataset/         # demo + schema
+    ├── pdfs/               # input PDFs
+    ├── outputs/            # output JSONs
+    └── schema/
+        └── output_schema.json
+
 
 
 ---
