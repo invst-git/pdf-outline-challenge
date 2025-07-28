@@ -1,4 +1,4 @@
-# PDF‑Outline‑Challenge 🏗️
+# PDF‑Outline‑Challenge
 
 Extract a clean **heading outline (Title → H1/H2/H3)** from any PDF, fully offline, on CPU‑only hardware.
 
@@ -27,7 +27,8 @@ docker run --rm \
   --network none \
   pdfoutline.challenge
 
-
+---
+## 2  Repository layout
 
 
 pdf_outline_project/
@@ -53,6 +54,9 @@ pdf_outline_project/
     ├── pdfs/
     └── schema/output_schema.json
 
+---
+
+## 3 How it works?
 
 
 | Stage                   | Tool                                        | Details                                                           |
@@ -65,10 +69,10 @@ pdf_outline_project/
 
 The entire pipeline runs on CPU (amd64) and never tries to contact the Internet (TRANSFORMERS_OFFLINE=1, HF_HUB_OFFLINE=1)
 
+---
+4  Key commands
 
 
-
-KEY COMMANDS
 | Purpose                   | Command                                                                                                          |
 | ------------------------- | ---------------------------------------------------------------------------------------------------------------- |
 | **Build image**           | `docker build --platform linux/amd64 -t pdfoutline.challenge .`                                                  |
@@ -76,7 +80,10 @@ KEY COMMANDS
 | **Local dev (no Docker)** | `python -m pdf_outline.cli <some.pdf> --dpi 120`                                                                 |
 
 
-TROUBLESHOOTING
+---
+6  Troubleshooting
+
+
 | Symptom                       | Fix                                                                           |
 | ----------------------------- | ----------------------------------------------------------------------------- |
 | `ConvInteger` not implemented | make sure you are using the INT8 models inside `models/donut_base_int8/int8/` |
