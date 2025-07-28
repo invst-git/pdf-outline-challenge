@@ -1,5 +1,5 @@
 [build-system]
-requires = ["setuptools>=61.0"]
+requires = ["setuptools>=61.0", "wheel"]
 build-backend = "setuptools.build_meta"
 
 [project]
@@ -10,7 +10,6 @@ readme = "README.md"
 requires-python = ">=3.10"
 authors = [{ name = "Nitish Dandu" }]
 
-# -----  runtime dependencies  ---------------------------------------------
 dependencies = [
     "torch>=2.1.0",
     "transformers>=4.41.0",
@@ -21,8 +20,6 @@ dependencies = [
     "optimum>=1.26.1",
     "onnx>=1.17.0",
     "huggingface_hub>=0.23.0",
-    # optional OCR helpers
-    "pytesseract>=0.3.11 ; extra == 'ocr'"
 ]
 
 [project.optional-dependencies]
