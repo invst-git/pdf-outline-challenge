@@ -1,0 +1,30 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "pdf_outline"
+version = "0.1.0"
+description = "Heading‑outline extractor (Donut INT8 + rule‑based cluster)"
+readme = "README.md"
+requires-python = ">=3.10"
+authors = [{ name = "Nitish Dandu" }]
+
+# -----  runtime dependencies  ---------------------------------------------
+dependencies = [
+    "torch>=2.1.0",
+    "transformers>=4.41.0",
+    "sentencepiece>=0.2.0",
+    "pillow>=10.4.0",
+    "PyMuPDF>=1.24.1",
+    "onnxruntime>=1.22.0",
+    "optimum>=1.26.1",
+    "onnx>=1.17.0",
+    "huggingface_hub>=0.23.0",
+    # optional OCR helpers
+    "pytesseract>=0.3.11 ; extra == 'ocr'"
+]
+
+[project.optional-dependencies]
+ocr = ["pytesseract>=0.3.11"]
+dev = ["black", "flake8", "pytest", "build", "wheel"]

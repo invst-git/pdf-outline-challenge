@@ -1,0 +1,22 @@
+# python artefacts
+__pycache__/
+*.py[cod]
+*.egg-info/
+.build/
+dist/
+
+# virtual env
+pdf_env/
+.env/
+venv/
+
+# models & datasets
+models/
+sample_dataset/outputs/
+tmp_out/
+
+# misc
+.DS_Store
+
+models/**/.cache/
+models/**/*.lock
